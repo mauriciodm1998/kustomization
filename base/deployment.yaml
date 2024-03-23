@@ -17,7 +17,7 @@ spec:
         livenessProbe:
           failureThreshold: 1
           httpGet:
-            path: /healthz
+            path: /api/healthz
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 10
@@ -32,7 +32,7 @@ spec:
         readinessProbe:
           failureThreshold: 1
           httpGet:
-            path: /healthz
+            path: /api/healthz
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 10
@@ -47,7 +47,7 @@ spec:
             cpu: 5m
             memory: 20Mi
         volumeMounts:
-        - mountPath: /app/bin/config.yaml
+        - mountPath: /go/app/config.yaml
           name: configmap
           subPath: config.yaml
       volumes:
